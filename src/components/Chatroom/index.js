@@ -1,8 +1,13 @@
 // == Composant
+import Messages from 'src/components/Messages';
+import Form from 'src/components/Form';
+import './style.scss';
+
 function Chatroom() {
   return (
     <div className="Chatroom">
-      <p> chatroom</p>
+      <Messages />
+      <Form />
     </div>
   );
 }

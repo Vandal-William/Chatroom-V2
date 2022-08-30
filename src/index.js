@@ -1,7 +1,7 @@
 // == Import : npm
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
 // Composants
@@ -13,9 +13,7 @@ import store from 'src/store';
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <BrowserRouter>
-      <Chatroom />
-    </BrowserRouter>
+    <Chatroom />
   </Provider>
 );
 
