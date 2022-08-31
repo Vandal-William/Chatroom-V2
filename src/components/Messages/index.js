@@ -8,11 +8,14 @@ function Messages() {
   return (
     <div className="Messages">
       {messages.map((message) => (
-        <Message key={message.id} author={message.author} content={message.content} />
+        <Message
+          key={message.id}
+          author={message.author}
+          content={message.content}
+        />
       ))}
     </div>
   );
 }
-
 // == Export
 export default Messages;

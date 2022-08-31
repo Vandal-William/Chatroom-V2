@@ -4,25 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function Form() {
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.value);
-  const messages = useSelector((state) => state.messages);
+  const newMessage = useSelector((state) => state.newMessage);
   const handleChange = (event) => {
     dispatch({
-      type: 'CHANGE_VALUE',
+      type: 'WRITE',
       value: event.target.value,
     });
   };
-  const change = () => {
-    messages.push(value);
-    console.log(messages);
-  };
-
   return (
-    <Formulaire onSubmit={change}>
+    <Formulaire>
       <Formulaire.Field>
         <Input
-          action=">>"
-          value={value}
+          action="Submit"
+          value={newMessage}
           onChange={handleChange}
         />
       </Formulaire.Field>

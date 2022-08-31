@@ -16,19 +16,19 @@ const initialState = {
       id: 3,
     },
   ],
+  newMessage: '',
 };
 
 function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case 'CHANGE_VALUE':
+    case 'WRITE':
       return {
-        ...state, // déverse le contenue du state
-        // le ou les state qui change
+        ...state,
+        newMessage: action.value,
       };
-    case 'STORE_MESSAGE':
+    case 'INSTRUCTION':
       return {
-        ...state, // déverse le contenue du state
-        // le ou les state qui change
+        ...state,
       };
     default:
       return state;
