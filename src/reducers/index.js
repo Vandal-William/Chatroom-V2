@@ -1,3 +1,5 @@
+import { getNextId } from 'src/selectors';
+
 const initialState = {
   messages: [
     {
@@ -26,9 +28,18 @@ function reducer(state = initialState, action = {}) {
         ...state,
         newMessage: action.value,
       };
-    case 'INSTRUCTION':
+    case 'ADD_MESSAGE':
       return {
         ...state,
+        messages: [
+          ...state.messages,
+          {
+            id: getNextId(state.messages),
+            content: state.newMessage,
+            author: 'william',
+          },
+        ],
+        newMessage: '',
       };
     default:
       return state;

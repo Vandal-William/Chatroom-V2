@@ -11,8 +11,13 @@ function Form() {
       value: event.target.value,
     });
   };
+  const handleSubmit = () => {
+    dispatch({
+      type: 'ADD_MESSAGE',
+    });
+  };
   return (
-    <Formulaire>
+    <Formulaire onSubmit={handleSubmit}>
       <Formulaire.Field>
         <Input
           action="Submit"
