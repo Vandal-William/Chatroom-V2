@@ -1,14 +1,19 @@
 // == Composant
 import './style.scss';
+import PropTypes from 'prop-types';
 
-function Message() {
+function Message({ author, content }) {
   return (
     <div className="Message">
-      <span> Super chat </span>
-      <p className="message-chat"> Je suis le plus puissant des chats !</p>
+      <p>{author}</p>
+      <p className="message-chat">{content}</p>
     </div>
   );
 }
 
+Message.propTypes = {
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 // == Export
 export default Message;
