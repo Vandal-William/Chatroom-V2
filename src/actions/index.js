@@ -23,3 +23,15 @@
 //     direction: direction,
 //   };
 // }
+
+export const TOGGLE_OPEN = 'TOGGLE_OPEN';
+
+export const toggleOpen = () => ({
+  type: TOGGLE_OPEN,
+});
+
+export const TOGGLE_SETTINGS_OPEN = 'TOGGLE_SETTINGS_OPEN';
+
+export const toggleSettingsOpen = () => ({
+  type: TOGGLE_SETTINGS_OPEN,
+});

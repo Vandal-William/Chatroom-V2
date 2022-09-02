@@ -1,12 +1,19 @@
 // == Composant
 import Message from 'src/components/Message';
 import { useSelector } from 'react-redux';
+import { useEffect, useRef } from 'react';
 import './style.scss';
 
 function Messages() {
   const messages = useSelector((state) => state.messages);
-  return (
-    <div className="Messages">
+  const messagesElement = useRef(null);
+  // 3........................................................................
+  useEffect(() => {
+    messagesElement.current.scrollTo(0, messagesElement.current.scrollHeight);
+  }, [messages]);
+  // ..........................................................................
+  return ( // ......................4. Mettre la ref
+    <section className="messages" ref={messagesElement}>
       {messages.map((message) => (
         <Message
           key={message.id}
@@ -14,7 +21,7 @@ function Messages() {
           content={message.content}
         />
       ))}
-    </div>
+    </section>
   );
 }
 // == Export

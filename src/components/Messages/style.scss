@@ -1,8 +1,16 @@
-.Messages{
+@use 'src/styles/vars';
+
+.messages{
   border: solid 0.1rem #eaeaea;
-  background-color: rgb(185, 207, 248);
-  height: 55rem;
+  background-color: vars.$color-container;
+  height: 80vh;
   margin-bottom: 2rem;
   padding: 2rem;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 50%;
+  margin: auto;
+  
 }

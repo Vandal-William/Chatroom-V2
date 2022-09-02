@@ -1,0 +1,25 @@
+@use 'src/styles/vars';
+
+.tools {
+  background-color: white;
+  position: relative;
+  width: 50%;
+  margin: auto;
+
+  &-btn {
+    margin: 2px;
+    border: 0;
+    background-color: #eee;
+    padding: 1rem;
+
+    &:hover, &:focus {
+      background-color: #ccc;
+    }
+  }
+
+  .emoji-picker-react {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+  }
+}

@@ -1,0 +1,7 @@
+@use 'sass:color';
+
+$color-main: #13405D;
+$color-container: color.scale($color-main, $lightness: 80%);
+$color-text: color.scale($color-main, $lightness: 40%);
+// https://cubic-bezier.com/
+$easeBack: cubic-bezier(.44,1.4,.72,1.05);

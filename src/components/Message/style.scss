@@ -1,10 +1,13 @@
 .Message{
   margin-bottom: 2rem;
+
 }
+
 .message-chat{
+  display: inline-block;
   background-color: white;
   padding: 1rem;
-  margin-top: 0.5rem;
   border-radius: 20rem;
-  
+  min-width: 7rem; 
+  word-break: break-all;
 }
