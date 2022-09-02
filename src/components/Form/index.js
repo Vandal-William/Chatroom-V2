@@ -1,7 +1,7 @@
 // == Composant
-import { Form as Formulaire } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
+import { Send } from 'react-feather';
 import './style.scss';
 
 function Form() {
@@ -21,7 +21,8 @@ function Form() {
       value: event.target.value,
     });
   };
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (newMessage.trim() !== '') {
       dispatch({
         type: 'ADD_MESSAGE',
@@ -29,18 +30,18 @@ function Form() {
     }
   };
   return (
-    <Formulaire className="form" onSubmit={handleSubmit}>
-      <Formulaire.Field>
-        <input
-          className="from-input"
-          value={newMessage}
-          onChange={handleChange}
-          // 2....................................
-          ref={element}
-          // ..........=> suite composant Messages
-        />
-      </Formulaire.Field>
-    </Formulaire>
+    <form className="form" onSubmit={handleSubmit}>
+      <input
+        className="form-input"
+        aria-label="Message"
+        value={newMessage}
+        onChange={handleChange}
+        // 2....................................
+        ref={element}
+        // ..........=> suite composant Messages
+      />
+      <button title="Envoyer" className="form-btn" type="submit"> <Send size={42} /> </button>
+    </form>
   );
 }
 

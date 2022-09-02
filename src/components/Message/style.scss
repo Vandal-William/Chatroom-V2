@@ -1,13 +1,35 @@
-.Message{
-  margin-bottom: 2rem;
+@use 'src/styles/vars';
 
-}
+.message {
+  margin: 1rem;
 
-.message-chat{
-  display: inline-block;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 20rem;
-  min-width: 7rem; 
-  word-break: break-all;
+  &-author {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+    color: vars.$color-main;
+  }
+
+  &-content {
+    color: vars.$color-text;
+    background-color: white;
+    padding: 2rem 32px;
+    border-radius: 2rem;
+    display: inline-block;
+    min-width: 10em;
+    position: relative;
+    word-break: break-word;
+    animation: pop 0.4s vars.$easeBack 0s 1;
+    transform-origin: 0 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 2rem;
+      top: -16px;
+      height: 16px;
+      width: 16px;
+      background-color: white;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+  }
 }

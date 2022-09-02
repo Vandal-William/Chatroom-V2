@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 function Message({ author, content }) {
   return (
-    <div className="Message">
-      <p>{author}</p>
-      <p className="message-chat">{content}</p>
+    <div className="message">
+      <p className="message-author">{author}</p>
+      <p className="message-content">{content}</p>
     </div>
   );
 }
