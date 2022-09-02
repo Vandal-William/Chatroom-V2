@@ -15,9 +15,26 @@ input, button, select {
   font: inherit;
 }
 
-input{
-  height: 5rem;
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
+
+@keyframes popMessage {
+  0% {
+    transform: scale(0.5) translateX(-50%);
+  }
+
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
 /* 
   // or you can import your own font
   @font-face {

@@ -22,9 +22,11 @@ function Form() {
     });
   };
   const handleSubmit = () => {
-    dispatch({
-      type: 'ADD_MESSAGE',
-    });
+    if (newMessage.trim() !== '') {
+      dispatch({
+        type: 'ADD_MESSAGE',
+      });
+    }
   };
   return (
     <Formulaire className="form" onSubmit={handleSubmit}>

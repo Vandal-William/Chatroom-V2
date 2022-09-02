@@ -7,10 +7,17 @@ const initialState = {
   emojiOpen: false,
   settingsOpen: false,
   user: 'Anonyme',
+  logged: false,
+  loading: false,
 };
 
 function reducer(state = initialState, action = {}) {
   switch (action.type) {
+    case 'LOGIN':
+      return {
+        ...state,
+        loading: true,
+      };
     case 'WRITE':
       return {
         ...state,
@@ -51,6 +58,13 @@ function reducer(state = initialState, action = {}) {
         [action.key]: action.value,
         // la notation entre crochet me permet de spécifier
         // via une expression le nom de la propriété cliblée
+      };
+    case 'SAVE_USER':
+      return {
+        ...state,
+        user: action.pseudo,
+        logged: true,
+        loading: false,
       };
     default:
       return state;

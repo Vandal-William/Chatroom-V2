@@ -17,6 +17,14 @@
       transform: rotate(45deg);
     }
   }
+  
+  &-message {
+    margin-left: 1rem;
+    text-align: center;
+    width: 17em;
+    padding: 1rem;
+    background-color: white;
+  }
 
   &-form {
     width: 18em;

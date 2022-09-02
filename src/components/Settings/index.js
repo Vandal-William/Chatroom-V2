@@ -8,10 +8,17 @@ import './style.scss';
 
 function Settings() {
   const open = useSelector((state) => state.settingsOpen);
+  const logged = useSelector((state) => state.logged);
   const dispatch = useDispatch();
   const handleClick = () => {
     const action = toggleSettingsOpen();
     dispatch(action);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'LOGIN',
+    });
   };
   return (
     <section className={classNames('settings', { 'settings--closed': !open })}>
@@ -23,23 +30,28 @@ function Settings() {
       >
         <X />
       </button>
-      <form className="settings-form">
-        <Input
-          name="email"
-          className="settings-input"
-          placeholder="Email"
-          aria-label="Email"
-          type="email"
-        />
-        <Input
-          name="password"
-          className="settings-input"
-          placeholder="Mot de passe"
-          aria-label="Mot de passe"
-          type="password"
-        />
-        <button className="settings-action" type="submit">Envoyer</button>
-      </form>
+      {logged && (
+        <p className="settings-message">Connecté</p>
+      )}
+      {!logged && (
+        <form className="settings-form" onSubmit={handleSubmit}>
+          <Input
+            name="email"
+            className="settings-input"
+            placeholder="Email"
+            aria-label="Email"
+            type="email"
+          />
+          <Input
+            name="password"
+            className="settings-input"
+            placeholder="Mot de passe"
+            aria-label="Mot de passe"
+            type="password"
+          />
+          <button className="settings-action" type="submit">Se connecter</button>
+        </form>
+      )}
     </section>
   );
 }
