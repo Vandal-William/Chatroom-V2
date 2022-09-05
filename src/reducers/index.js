@@ -1,4 +1,3 @@
-import { getNextId } from 'src/selectors';
 import { TOGGLE_SETTINGS_OPEN } from '../actions';
 
 const initialState = {
@@ -28,11 +27,7 @@ function reducer(state = initialState, action = {}) {
         ...state,
         messages: [
           ...state.messages,
-          {
-            id: getNextId(state.messages),
-            content: state.newMessage,
-            author: state.user,
-          },
+          action.message,
         ],
         newMessage: '',
       };

@@ -3,9 +3,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
 
 import ajax from 'src/middlewares/ajax';
-import debug from 'src/middlewares/debug';
+import validation from 'src/middlewares/validation';
+import websocket from 'src/middlewares/websocket';
 
-const middlewares = applyMiddleware(debug, ajax);
+const middlewares = applyMiddleware(ajax, validation, websocket);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(middlewares);

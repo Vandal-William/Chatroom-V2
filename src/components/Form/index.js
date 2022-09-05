@@ -23,11 +23,9 @@ function Form() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (newMessage.trim() !== '') {
-      dispatch({
-        type: 'ADD_MESSAGE',
-      });
-    }
+    dispatch({
+      type: 'SEND_MESSAGE',
+    });
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
