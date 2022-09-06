@@ -2,6 +2,8 @@
 import Message from 'src/components/Message';
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
+import messageAudio from 'src/assets/audio/messageAudio.mp3';
+import useAudio from 'src/hooks/useAudio';
 import './style.scss';
 
 function Messages() {
@@ -12,6 +14,8 @@ function Messages() {
     messagesElement.current.scrollTo(0, messagesElement.current.scrollHeight);
   }, [messages]);
   // ..........................................................................
+  useAudio(messageAudio, [messages]);
+
   return ( // ......................4. Mettre la ref
     <section className="messages" ref={messagesElement}>
       {messages.map((message) => (

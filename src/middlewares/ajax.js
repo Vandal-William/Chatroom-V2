@@ -16,7 +16,10 @@ const ajax = (store) => (next) => (action) => {
       })
       .catch((error) => {
         // en cas d’échec de la requête
-        console.log(error);
+        store.dispatch({
+          type: 'DISPLAY_ERROR',
+          errorMessage: error.response.status === 401 ? 'email ou mot de passe invalide' : 'Erreur serveur, réessayez plus tard',
+        });
       });
   }
   next(action);

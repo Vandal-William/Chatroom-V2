@@ -8,10 +8,19 @@ const initialState = {
   user: 'Anonyme',
   logged: false,
   loading: false,
+  inError: false,
+  errorMessage: '',
 };
 
 function reducer(state = initialState, action = {}) {
   switch (action.type) {
+    case 'DISPLAY_ERROR':
+      return {
+        ...state,
+        inError: true,
+        loading: false,
+        errorMessage: action.errorMessage,
+      };
     case 'LOGIN':
       return {
         ...state,
@@ -60,6 +69,16 @@ function reducer(state = initialState, action = {}) {
         user: action.pseudo,
         logged: true,
         loading: false,
+        password: '',
+        email: '',
+        inError: false,
+        errorMessage: '',
+      };
+    case 'LOGOUT':
+      return {
+        ...state,
+        logged: false,
+        user: 'Anonyme',
       };
     default:
       return state;
